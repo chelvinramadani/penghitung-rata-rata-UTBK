@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung Rata-Rata UTBK</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-md my-4">
+        <div class="text-center mb-4">
+            <img src="snbt.png" alt="Logo" class="logo">
+        </div>
+        <div class="card p-4">
+            <h1 class="text-center mb-4">Hitung Rata-rata Nilai UTBK</h1>
+            <div id="nilai-form" class="row">
+                <div class="col-md-6 offset-md-3">
+                    <label for="nilai1" class="form-label">Penalaran Umum :</label>
+                    <input type="number" class="form-control mb-3" id="nilai1" required>
+
+                    <label for="nilai2" class="form-label">Pengetahuan dan Pemahaman Umum :</label>
+                    <input type="number" class="form-control mb-3" id="nilai2" required>
+
+                    <label for="nilai3" class="form-label">Pemahaman Bacaan dan Menulis :</label>
+                    <input type="number" class="form-control mb-3" id="nilai3" required>
+
+                    <label for="nilai4" class="form-label">Pengetahuan Kuantitatif :</label>
+                    <input type="number" class="form-control mb-3" id="nilai4" required>
+
+                    <label for="nilai5" class="form-label"> Literasi dalam Bahasa Indonesia :</label>
+                    <input type="number" class="form-control mb-3" id="nilai5" required>
+
+                    <label for="nilai6" class="form-label"> Literasi dalam Bahasa Inggris :</label>
+                    <input type="number" class="form-control mb-3" id="nilai6" required>
+
+                    <label for="nilai7" class="form-label">Penalaran Matematika :</label>
+                    <input type="number" class="form-control mb-3" id="nilai7" required>
+
+                    <button onclick="hitungRataRata()" class="btn btn-primary">Hitung</button>
+                </div>
+            </div>
+            <div id="hasil" style="display:none;">
+                <h2 class="text-center mt-4">Hasil Rata Rata UTBK anda Adalah</h2>
+                <div id="nilai-output" class="text-center mb-6" style="font-size: 2rem;"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function hitungRataRata() {
+            // Mendapatkan nilai-nilai dari input
+            var nilai1 = parseFloat(document.getElementById('nilai1').value);
+            var nilai2 = parseFloat(document.getElementById('nilai2').value);
+            var nilai3 = parseFloat(document.getElementById('nilai3').value);
+            var nilai4 = parseFloat(document.getElementById('nilai4').value);
+            var nilai5 = parseFloat(document.getElementById('nilai5').value);
+            var nilai6 = parseFloat(document.getElementById('nilai6').value);
+            var nilai7 = parseFloat(document.getElementById('nilai7').value);
+
+            // Menghitung rata-rata
+            var total = nilai1 + nilai2 + nilai3 + nilai4 + nilai5 + nilai6 + nilai7;
+            var rataRata = total / 7;
+
+            // Menampilkan hasil
+            var hasilDiv = document.getElementById('hasil');
+            hasilDiv.style.display = 'block';
+
+            var nilaiOutput = document.getElementById('nilai-output');
+            nilaiOutput.innerHTML = rataRata.toFixed(2);
+        }
+    </script>
+</body>
+</html>
